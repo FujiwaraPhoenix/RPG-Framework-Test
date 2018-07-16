@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuController : MonoBehaviour {
-    public static MenuController mc;
+public class FightMenuController : MonoBehaviour {
+    public static FightMenuController mc;
 
     //In order: Determines current menu value, amount of items in the set, and how many items will be displayed.
     public int currentPointer, menuSize, itemsDisplayed;
@@ -25,6 +25,7 @@ public class MenuController : MonoBehaviour {
         Run,
         TargetSelectE,
         TargetSelectP,
+        StatChk,
         nullType
     }
 
@@ -41,6 +42,7 @@ public class MenuController : MonoBehaviour {
         {
             //move2D();
         }
+        Debug.Log(currentScreen);
         selectItem();
 	}
 

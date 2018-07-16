@@ -4,7 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ArrayHolder : MonoBehaviour {
-    public Text[] textList = new Text[5];
+    //Base Menu/Inv/Skill select options
+    public Text[] textList = new Text[6];
+    //Player/Enemy Select Options
+    public Text[] textList2 = new Text[5];
+
+    //Actual list of enemies
+    public Enemy[] enemyList = new Enemy[5];
 	// Use this for initialization
 	void Start () {
 		
@@ -16,13 +22,14 @@ public class ArrayHolder : MonoBehaviour {
             updateListing();
 	}
 
+    //This is a temporary version for testing; the full one will read the data for each individual character's skillset and parse with those instead.
     void updateListing()
     {
         for (int i = 0; i < textList.Length; i++)
         {
-            if (i < MenuController.mc.itemsDisplayed + 1)
+            if (i < FightMenuController.mc.itemsDisplayed + 1)
             {
-                textList[i].text = TextFileParser.tfp.itemList[i + MenuController.mc.minMenuItem];
+                textList[i].text = TextFileParser.tfp.itemList[i + FightMenuController.mc.minMenuItem];
             }
             else
             {

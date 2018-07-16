@@ -1,0 +1,6 @@
+Attack
+Defend
+Skill
+Item
+Special
+Flee

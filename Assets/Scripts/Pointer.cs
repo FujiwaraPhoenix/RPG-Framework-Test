@@ -14,6 +14,9 @@ public class Pointer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector2(xOffset, arH.textList[pPos].transform.position.y);
+        if (FightMenuController.currentScreen.Equals(FightMenuController.menuType.OptionSelect))
+        {
+            transform.position = new Vector2(xOffset, arH.textList[pPos].transform.position.y);
+        }
 	}
 }

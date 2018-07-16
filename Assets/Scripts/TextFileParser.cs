@@ -4,13 +4,17 @@ using UnityEngine;
 using System.IO;
 
 public class TextFileParser : MonoBehaviour {
+    //Static instance: THERE CAN ONLY BE ONE.
     public static TextFileParser tfp;
+
+    //For storing what we read from a string/output for other scripts.
     public string heldData;
     public string[] itemList;
 
+    //This is temporary for the sake of testing. Wipe this when we start for real.
     private void Start()
     {
-        readString();
+        readString("Assets/Text Files/MenuOptions.txt");
     }
 
     void Awake()
@@ -26,15 +30,16 @@ public class TextFileParser : MonoBehaviour {
         }
     }
 
-    void readString()
+    //Exactly what it sounds like. We read a string and... Well, turn the output into a list for us to use.
+    void readString(string pathName)
     {
-        string path = "Assets/Text Files/TestSkillList.txt";
-        StreamReader reader = new StreamReader(path);
+        StreamReader reader = new StreamReader(pathName);
         heldData = reader.ReadToEnd();
         reader.Close();
         tStringToList();
     }
 
+    //This is just to make things more readable. We take the string and split it. Easy.
     void tStringToList()
     {
         itemList = heldData.Split(new string[] { "\r\n", "\n" }, System.StringSplitOptions.None);

@@ -1,0 +1,6 @@
+Thunderbolt
+Fireball
+Icebolt
+Drain
+Heal
+Tailwind

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pointer : MonoBehaviour {
-    public ArrayHolder arH;
-    //public float[] YVals = new float[5];
     public float xOffset;
     public int pPos = 0;
 	// Use this for initialization
@@ -14,9 +12,13 @@ public class Pointer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (FightMenuController.currentScreen.Equals(FightMenuController.menuType.OptionSelect))
+        if (FightMenuController.mc.currentScreen.Equals(FightMenuController.menuType.OptionSelect))
         {
-            transform.position = new Vector2(xOffset, arH.textList[pPos].transform.position.y);
+            transform.localPosition = new Vector2(xOffset, ArrayHolder.puppeteer.textList[pPos].transform.localPosition.y);
         }
-	}
+        else if (FightMenuController.mc.currentScreen.Equals(FightMenuController.menuType.TargetSelectE))
+        {
+            transform.localPosition = new Vector2(xOffset, ArrayHolder.puppeteer.textList2[pPos].transform.localPosition.y);
+        }
+    }
 }

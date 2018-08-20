@@ -10,6 +10,7 @@ public class TextFileParser : MonoBehaviour {
     //For storing what we read from a string/output for other scripts.
     public string heldData;
     public string[] itemList;
+    public string[] fileLocs;
 
     //This is temporary for the sake of testing. Wipe this when we start for real.
     private void Start()
